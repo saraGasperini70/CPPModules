@@ -2,8 +2,8 @@
 
 int	main(int ac, char **av)
 {
-	int	i = 1;
-	int	j = 0;
+	int	i;
+	int	j;
 
 	if (ac >= 2)
 	{
