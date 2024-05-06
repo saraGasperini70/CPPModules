@@ -1,22 +1,26 @@
-#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-HumanA::HumanB(std::string name)
+HumanB::HumanB(std::string name)
 {
-	this._name = name;
-	std::cout << this._name << " created." << std::endl;
+	this->_name = name;
+	std::cout << this->_name << " created." << std::endl;
 }
 
-HumanA::~HumanB()
+HumanB::~HumanB()
 {
-	std::cout << this._name << " destroyed." << std::endl;
+	std::cout << this->_name << " destroyed." << std::endl;
 }
 
-void	HumanA::attack(void)
+void	HumanB::attack(void)
 {
-	std::cout << this._name << " attacks with their " << this._weapon.type << std::endl;
+	if (this->_armed == 1)
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	else
+		std::cout << this->_name << " attacks." << std::endl;
 }
 
-void	HumanA::setWeapon(Weapon *weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	this._weapon = weapon;
+	this->_weapon = &weapon;
+	this->_armed = 1;
 }
