@@ -1,8 +1,9 @@
-NAME = scav_trap
+NAME = frag_trap
 
 SRC = main.cpp\
 	ClapTrap.cpp\
 	ScavTrap.cpp\
+	FragTrap.cpp\
 
 FLAGS = c++ -Wall -Wextra -Werror -std=c++98
 

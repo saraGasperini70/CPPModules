@@ -49,7 +49,10 @@ int	ClapTrap::getAttackDamage()
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->getEnergyPoints() > 0 && this->getHitPoints() > 0)
+	{
+		this->_energyPoints -= 1;
 		std::cout << this->getName() << " is attacking " << target << " for " << this->getAttackDamage() << " points" << std::endl;
+	}
 	else if (this->getEnergyPoints() <= 0)
 		std::cout << this->getName() << " has no energy to attack." << std::endl;
 	else if (this->getHitPoints() <= 0)
@@ -58,7 +61,7 @@ void	ClapTrap::attack(const std::string &target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_hitPoints -= amount;
+	this->_hitPoints -= amount; 
 	std::cout << this->getName() << " received " << amount << " points of damage. It still has " << this->getHitPoints() << " hit points." << std::endl;
 }
 
@@ -66,6 +69,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	this->_hitPoints += amount;
 	std::cout << this->getName() << " repaired itself for " << amount << " hit points. It now has " << this->getHitPoints() <<  " hit points." << std::endl;
+	this->_energyPoints -= 1;
 }
 
 //Operators
