@@ -3,11 +3,13 @@
 
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
 
 class Animal
 {
 	protected:
 		std::string type;
+		Brain	*brain;
 
 	public:
 		//Constructor/deconstructor

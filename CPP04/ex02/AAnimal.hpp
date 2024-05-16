@@ -1,27 +1,29 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
 
-class Animal
+class AAnimal
 {
 	protected:
 		std::string type;
+		Brain	*brain;
 
 	public:
 		//Constructor/deconstructor
-		Animal();
-		Animal(Animal &src);
-		virtual ~Animal();
+		AAnimal();
+		AAnimal(AAnimal &src);
+		virtual ~AAnimal();
 
 		//Getters/Setters
 		std::string getType(void) const;
 		void setType(std::string type);
 
 		//Member functions
-		Animal &operator=(const Animal &src);
-		virtual void	makeSound(void) const;
+		AAnimal &operator=(const AAnimal &src);
+		virtual void	makeSound(void) const = 0;
 };
 
 #endif

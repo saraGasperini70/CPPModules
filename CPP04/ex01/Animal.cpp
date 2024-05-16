@@ -13,7 +13,7 @@ Animal::Animal(Animal &src)
 
 Animal::~Animal()
 {
-	std::cout << "Animal copy deconstructor called." << std::endl;
+	std::cout << "Animal standard deconstructor called." << std::endl;
 }
 
 std::string Animal::getType(void) const
