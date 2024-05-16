@@ -29,13 +29,42 @@ void Harl::error( void )
 
 void Harl::complain( std::string level )
 {
-	void	(Harl::*functionsPTRS[])( void ) = {&Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
+	// void	(Harl::*functionsPTRS[])( void ) = {&Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
 	std::string	levels[] = {"DEBUG", "ERROR", "INFO", "WARNING"};
 	int	i = 0;
-	for (int i = 0; i < 4; i++)
+
+	for (i = 0; i < 5; i++)
 	{
 		if (level == levels[i])
-			(this->*functionsPTRS[i])();
+			break ;
 	}
 
+	switch (i)
+	{
+		case 0:
+			this->debug();
+			this->info();
+			this->warning();
+			this->error();
+			break ;
+		case 1:
+			this->info();
+			this->warning();
+			this->error();
+			break ;
+		case 2:
+			this->warning();
+			this->error();
+			break ;
+		case 3:
+			this->warning();
+			this->error();
+			break ;
+		case 4:
+			this->error();
+			break ;
+		case 5:
+			std::cout << "Error: invalid input." << std::endl;
+			break ;
+	}
 }

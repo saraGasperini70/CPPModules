@@ -11,7 +11,7 @@ Weapon::~Weapon()
 	std::cout << "Weapon " << this->_type << " destroyed." << std::endl;
 }
 
-const std::string	Weapon::getType(void)
+const std::string	&Weapon::getType(void)
 {
 	return this->_type;
 }

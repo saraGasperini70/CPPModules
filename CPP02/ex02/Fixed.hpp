@@ -21,8 +21,8 @@ class	Fixed
 	//Getters/Setters
 		int 	getRawBits( void ) const;
 		void 	setRawBits( int const raw );
-	//Comparison operator overloads
 		Fixed& 	operator=(const Fixed &src);
+	//Comparison operator overloads
 		bool	operator>(Fixed fixed) const;
 		bool	operator<(Fixed fixed) const;
 		bool	operator>=(Fixed fixed) const;
