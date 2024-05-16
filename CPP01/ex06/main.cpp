@@ -1,15 +1,12 @@
 #include "Harl.hpp"
 
-int	main()
+int	main(int ac, char **av)
 {
 	Harl harl;
 
-	// std::cout << "Testing harl's debug..." << std::endl;
-	// harl.complain("DEBUG");
-	std::cout << "Testing harl's info..." << std::endl;
-	harl.complain("huu");
-	// std::cout << "Testing harl's warning..." << std::endl;
-	// harl.complain("WARNING");
-	// std::cout << "Testing harl's error..." << std::endl;
-	// harl.complain("ERROR");
+	if (ac > 1)
+	{
+		std::cout << "Testing harl's info..." << std::endl;
+		harl.complain(av[1]);
+	}
 }

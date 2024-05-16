@@ -1,4 +1,4 @@
-NAME = harl_complains
+NAME = harl_complains_filtered
 
 SRC = main.cpp\
 	Harl.cpp\
