@@ -63,7 +63,7 @@ void Harl::complain( std::string level )
 		case 4:
 			this->error();
 			break ;
-		case 5:
+		default:
 			std::cout << "Error: invalid input." << std::endl;
 			break ;
 	}
