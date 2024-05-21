@@ -30,7 +30,7 @@ void Harl::error( void )
 void Harl::complain( std::string level )
 {
 	// void	(Harl::*functionsPTRS[])( void ) = {&Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
-	std::string	levels[] = {"DEBUG", "ERROR", "INFO", "WARNING"};
+	std::string	levels[] = {"INFO", "DEBUG", "WARNING", "ERROR"};
 	int	i = 0;
 
 	for (i = 0; i < 5; i++)

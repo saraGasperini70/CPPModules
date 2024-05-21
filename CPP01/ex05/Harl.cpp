@@ -31,7 +31,6 @@ void Harl::complain( std::string level )
 {
 	void	(Harl::*functionsPTRS[])( void ) = {&Harl::debug, &Harl::error, &Harl::info, &Harl::warning};
 	std::string	levels[] = {"DEBUG", "ERROR", "INFO", "WARNING"};
-	int	i = 0;
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])

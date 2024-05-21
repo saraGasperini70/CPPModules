@@ -24,18 +24,19 @@ int	main(int ac, char **av)
 {
 	if (ac == 4)
 	{
-		const std::string	filename = av[1];
-		const std::string	search = av[2];
-		const std::string	replace = av[3];
+		std::string	filename = av[1];
+		std::string	search = av[2];
+		std::string	replace = av[3];
 
 		std::string			buffer;
 		std::ifstream	fin;
 		std::ofstream	fout;
+		std::string	outputFile = filename + ".replace";
 
 		fin.open(av[1]);
 		if (fin.is_open() == true)
 		{
-			fout.open(".replace", std::ios::out | std::ios::trunc);
+			fout.open(outputFile.c_str(), std::ios::out | std::ios::trunc);
 			if (fout.is_open() == true)
 			{
 				while (std::getline(fin, buffer))
@@ -49,21 +50,21 @@ int	main(int ac, char **av)
 			}
 			else
 			{
-				std::perror("Error while opening output file.");
+				std::cerr << "Error while opening output file." << std::endl;
 				fin.close();
 				return (EXIT_FAILURE);
 			}
 		}
 		else
 		{
-			std::perror("Error while opening input file.");
+			std::cerr << "Error while opening input file." << std::endl;
 			return (EXIT_FAILURE);
 		}
 		return (EXIT_SUCCESS);
 	}
 	else
 	{
-		std::perror("Number of argument must be 3");
+		std::cerr << "Number of argument must be 3" << std::endl;
 		std::cout << "Usage: filename, search string, replace string." << std::endl;
 	}
 	return (EXIT_FAILURE);
