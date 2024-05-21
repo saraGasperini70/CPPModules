@@ -1,7 +1,9 @@
-NAME = dream_job
+NAME = fixed_operators
 
-SRC = Account.cpp\
-	main.cpp\
+SRC = main.cpp\
+	Fixed.cpp\
+	Point.cpp\
+
 
 FLAGS = c++ -Wall -Wextra -Werror -std=c++98
 
@@ -15,11 +17,11 @@ $(NAME):
 	@printf "READY.\n"
 
 clean:
-	@rm -rf megaphone.o
+	@rm -rf *.o
 	@printf "Object deleted\n"
 
 fclean: clean
-	@rm -rf megaphone.o $(NAME)
+	@rm -rf *.o $(NAME)
 	@printf "All cleared\n"
 
 re: fclean all
