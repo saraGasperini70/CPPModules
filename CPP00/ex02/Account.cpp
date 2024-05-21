@@ -48,7 +48,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 int		Account::checkAmount( void ) const
 {
-	return this->getTotalAmount();
+	return (this->_amount);
 }
 
 void	Account::displayStatus( void ) const
