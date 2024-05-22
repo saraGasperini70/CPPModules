@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgasperi <sgasperi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/22 12:00:35 by sgasperi          #+#    #+#             */
+/*   Updated: 2024/05/22 14:50:06 by sgasperi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl::Harl()
@@ -57,10 +69,6 @@ void Harl::complain( std::string level )
 			this->error();
 			break ;
 		case 3:
-			this->warning();
-			this->error();
-			break ;
-		case 4:
 			this->error();
 			break ;
 		default:
