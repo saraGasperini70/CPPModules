@@ -25,6 +25,7 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &src);
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(std::string formName);
 		class GradeTooHighException: public std::exception
 		{
 			public:
