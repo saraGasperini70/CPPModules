@@ -1,7 +1,9 @@
-NAME = shrubbery
+NAME = forms
 
 SRC = main.cpp\
 	ShrubberyCreationForm.cpp\
+	RobotomyRequestForm.cpp\
+	PresidentialPardonForm.cpp\
 	Bureaucrat.cpp\
 	AForm.cpp\
 

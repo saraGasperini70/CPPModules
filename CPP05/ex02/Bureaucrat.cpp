@@ -1,4 +1,5 @@
 # include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat( void ) : name("Default"), grade(150)
 {
@@ -67,22 +68,6 @@ void Bureaucrat::decrementGrade()
 	this->grade++;
 }
 
-void Bureaucrat::signForm(AForm &form)
-{
-	if (form.getIsSigned())
-		std::cout << this->name << " signed " << form.getName() << std::endl;
-	else
-		std::cout << this->name << " couldn't sign " << form.getName() << " because his grade is too low." << std::endl;
-}
-
-void Bureaucrat::executeForm(AForm const &form)
-{
-	if (form.getIsSigned())
-		std::cout << this->name << " executed " << form.getName() << std::endl;
-	else
-		std::cout << this->name << " couldn't execute " << form.getName() << " because it is not signed." << std::endl;
-}
-
 const char *Bureaucrat::GradeTooHighException::what( void ) const throw()
 {
 	return ("Grade is too high.");
@@ -97,4 +82,26 @@ std::ostream	&operator<<(std::ostream &out, const Bureaucrat &src)
 {
 	out << src.getName() << ", bureaucrat grade " << src.getGrade() << "." << std::endl;
 	return out;
+}
+
+void Bureaucrat::signForm(AForm &Aform)
+{
+	if (this->grade <= Aform.getSignGrade())
+	{
+		Aform.beSigned(*this);
+		std::cout << this->name << " signed " << Aform.getName() << std::endl;
+	}
+	else
+		std::cout << this->name << " couldn't sign " << Aform.getName() << " because of his grade." << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const & Aform)
+{
+	if (this->grade <= Aform.getExecuteGrade())
+	{
+		std::cout << this->name << " executed " << Aform.getName() << std::endl;
+		Aform.execute(*this);
+	}
+	else
+		std::cout << this->name << " couldn't execute " << Aform.getName() << " because of his grade." << std::endl;
 }

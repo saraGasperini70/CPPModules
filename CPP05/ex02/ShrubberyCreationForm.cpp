@@ -1,5 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 //Constructor/deconstructor
 ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137), target("default")
@@ -12,7 +15,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbe
 	std::cout << "ShrubberyCreationForm constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &src): AForm(src), target(src.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src): AForm(src), target(src.target)
 {
 	std::cout << "ShrubberyCreationForm copy constructor called." << std::endl;
 	*this = src;
@@ -28,38 +31,27 @@ std::string ShrubberyCreationForm::getTarget(void) const
 	return (this->target);
 }
 
-void ShrubberyCreationForm::setTarget(std::string target)
-{
-	this->target = target;
-}
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &src)
-		this->target = src.target;
-	return *this;
-}
-
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
+	std::fstream fileout;
+
+	fileout.open((this->target + "_shrubbery").c_str(), std::ios::out);
 	if (this->getIsSigned() == false)
 		throw FormNotSignedException();
 	else if (executor.getGrade() > this->getExecuteGrade())
 		throw GradeTooLowException();
-	else
+	if (!fileout)
 	{
-		std::ofstream file(this->target + "_shrubbery");
-		if (file.is_open())
-		{
-			file << "       _-_-_\n";
-			file << "    _-       -_\n";
-			file << "  _-             -_\n";
-			file << " -                 -\n";
-			file << "        | |\n";
-			file.close();
-		}
+		std::cerr << "Error: Could not create file " << this->target + "_shrubbery" << std::endl;
+		return;
 	}
+	std::cout << "ShrubberyCreationForm: " << this->target + "_shrubbery" << " created." << std::endl;
+	fileout << "        *           *\n";
+	fileout << "       ***         ***\n";
+	fileout << "      *****       *****\n";
+	fileout << "     *******     *******\n";
+	fileout << "       | |         | |\n";
+	fileout.close();
 }
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &src)
@@ -71,3 +63,8 @@ std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &src)
 	return out;
 }
 
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &src)
+{
+	(void)src;
+	return *this;
+}

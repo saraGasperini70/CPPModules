@@ -1,13 +1,18 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 # include <iostream>
 # include <string>
+# include <fstream>
+# include <exception>
+# include <cstdlib>
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class AForm
 {
 	private:
-		std::string const name;
+		const std::string name;
 		bool isSigned;
 		int const toSignGrade;
 		int const toExecuteGrade;
@@ -16,8 +21,9 @@ class AForm
 		//Constructor/deconstructor
 		AForm();
 		AForm(std::string name, int signGrade, int executeGrade);
-		AForm(AForm &src);
+		AForm(const AForm &src);
 		virtual ~AForm();
+		//Getters/Setters
 		std::string getName(void) const;
 		bool getIsSigned(void) const;
 		int getSignGrade(void) const;
@@ -28,11 +34,6 @@ class AForm
 		void setExecuteGrade(int executeGrade);
 		//Member functions
 		AForm &operator=(const AForm &src);
-		void beSigned(Bureaucrat &bureaucrat);
-
-		// Pure virtual function
-		virtual void execute(Bureaucrat const &executor) const = 0;
-
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -48,6 +49,8 @@ class AForm
 			public:
 				const char *what( void ) const throw();
 		};
+		virtual void execute(Bureaucrat const &executor) const = 0;
+		virtual void beSigned(Bureaucrat const &bureaucrat);
 };
 std::ostream	&operator<<(std::ostream &out, const AForm &src);
 #endif
