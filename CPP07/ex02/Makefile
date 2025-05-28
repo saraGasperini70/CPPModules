@@ -1,9 +1,8 @@
 NAME = array
 
-SRCS = main.cpp \
+SRCS = main.cpp
 
-INCS = Array.hpp \
-		Array.tpp \
+INCS = Array.hpp
 
 
 OBJS = $(SRCS:.cpp=.o)
