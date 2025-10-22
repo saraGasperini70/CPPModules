@@ -9,8 +9,8 @@ int	main(void)
 	AForm *form3;
 
 	form1 = intern.makeForm("ShrubberyCreationForm", "home");
-	form2 = intern.makeForm("RobotomyRequestForm", "home");
-	form3 = intern.makeForm("PresidentialPardonForm", "home");
+	form2 = intern.makeForm("robotomy request", "home");
+	form3 = intern.makeForm("Presidential Pardon Form", "home");
 
 	if (form1)
 		std::cout << *form1 << std::endl;
