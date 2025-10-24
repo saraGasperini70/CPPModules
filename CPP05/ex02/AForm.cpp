@@ -1,4 +1,6 @@
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
+
 //Constructor/deconstructor
 AForm::AForm(void): toSignGrade(150), toExecuteGrade(150)
 {
@@ -14,15 +16,18 @@ AForm::AForm(std::string name, int signGrade, int executeGrade): name(name), toS
 		throw AForm::GradeTooLowException();
 	this->isSigned = false;
 }
+
 AForm::AForm(const AForm &src) : name(src.name), toSignGrade(src.toSignGrade), toExecuteGrade(src.toExecuteGrade)
 {
 	std::cout << "AForm copy constructor called." << std::endl;
 	*this = src;
 }
+
 AForm::~AForm()
 {
 	std::cout << "AForm deconstructor called." << std::endl;
 }
+
 //Getters/Setters
 std::string AForm::getName(void) const
 {

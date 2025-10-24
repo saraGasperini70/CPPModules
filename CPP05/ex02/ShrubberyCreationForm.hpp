@@ -2,7 +2,6 @@
 # define SHRUBBERYCREATIONFORM_HPP
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
-// Ensure AForm.hpp includes the full definition of AForm and does not forward-declare it only.
 
 class ShrubberyCreationForm: public AForm
 {

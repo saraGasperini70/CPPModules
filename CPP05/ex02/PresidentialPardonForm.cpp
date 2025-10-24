@@ -1,4 +1,5 @@
 #include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
 //Constructor/deconstructor
 PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", 25, 5), target("default")

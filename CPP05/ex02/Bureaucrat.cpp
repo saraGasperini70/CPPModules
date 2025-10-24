@@ -1,4 +1,4 @@
-# include "Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
 Bureaucrat::Bureaucrat( void ) : name("Default"), grade(150)

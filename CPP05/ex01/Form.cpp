@@ -1,3 +1,4 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 //Constructor/deconstructor
 Form::Form(void): toSignGrade(150), toExecuteGrade(150)

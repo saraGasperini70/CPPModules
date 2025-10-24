@@ -2,10 +2,8 @@
 # define AFORM_HPP
 # include <iostream>
 # include <string>
-# include <fstream>
 # include <exception>
 # include <cstdlib>
-# include "Bureaucrat.hpp"
 
 class Bureaucrat;
 

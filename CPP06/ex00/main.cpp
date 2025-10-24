@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <iostream>
 
 int	main(int argc, char **argv)
 {
@@ -10,8 +11,7 @@ int	main(int argc, char **argv)
 
 	try
 	{
-		ScalarConverter converter;
-		converter.convert(argv[1]);
+		ScalarConverter::convert(argv[1]);
 	}
 	catch (const ScalarConverter::InvalidInputException &e)
 	{
