@@ -10,17 +10,17 @@ FLAGS = c++ -Wall -Wextra -Werror -std=c++98
 all: $(NAME)
 
 $(NAME):
-	@printf "Compiling...\n"
+	@echo "Compiling...\n"
 	@$(FLAGS) $(SRCS) -o $(NAME)
-	@printf "READY.\n"
+	@echo "READY.\n"
 
 clean:
 	@rm -rf *.o
-	@printf "Object deleted\n"
+	@echo "Object deleted\n"
 
 fclean: clean
 	@rm -rf *.o $(NAME)
-	@printf "All cleared\n"
+	@echo "All cleared\n"
 
 re: fclean all
 

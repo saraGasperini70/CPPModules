@@ -5,33 +5,23 @@ SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = c++ -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@echo "Compiling $@..."
-	@$(CXX) $(FLAGS) -o $@ $^
-	@echo "Compilation done."
-
-%.o: %.cpp
-	@echo "Compiling $<..."
-	@$(CXX) $(FLAGS) -c $< -o $@
+$(NAME):
+	@echo "Compiling ...\n"
+	@$(FLAGS) $(SRCS) -o$(NAME)
 	@echo "Compilation done."
 
 clean:
-	@echo "Cleaning up..."
-	@rm -f $(OBJS)
+	@rm -f *.o
 	@echo "Cleaned up."
 
 fclean: clean
-	@echo "Cleaning up..."
-	@rm -f $(NAME)
+	@rm -f *.o $(NAME)
 	@echo "Cleaned up."
 
 re: fclean all
-	@echo "Recompiling..."
-	@$(MAKE) all
-	@echo "Recompiled."
 
 .PHONY: all clean fclean re
