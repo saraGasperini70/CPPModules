@@ -5,6 +5,7 @@
 
 Base *generate(void)
 {
+	srand(time(0));
 	int random = rand() % 3;
 	switch (random)
 	{
