@@ -1,7 +1,6 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-#include <iostream>
 #include <exception>
 #include <cstdlib>
 
@@ -36,23 +35,30 @@ class Array
 		{
 			if (this != &other)
 			{
+				T* tmp = new T(other._size);
+				for (unsigned int i = 0; i < other._size; i++)
+					tmp[i] = other._array[i];
 				delete[] (this->_array);
 				this->_size = other._size;
-				this->_array = new T[this->_size];
-				for (unsigned int i = 0; i < other._size; i++)
-					this->_array[i] = other._array[i];
+				this->_array = tmp;
 			}
 			return (*this);
 		}
-		T &operator[](const int index)
+		T &operator[](unsigned int index)
 		{
-			if (index >= static_cast<int>(this->_size) || index < 0)
+			if (index >= this->_size)
 				throw (Array::IndexOutOfBounds());
 			return (this->_array[index]);
 		}
-		unsigned int size(void)
+		T &operator[](unsigned int index) const
 		{
-			return (this->_size);
+			if (index >= _size)
+				throw (Array::IndexOutOfBounds());
+			return (_array[index]);
+		}
+		unsigned int size(void) const
+		{
+			return (_size);
 		}
 };
 #endif

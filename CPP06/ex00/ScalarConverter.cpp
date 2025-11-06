@@ -1,7 +1,6 @@
 #include "ScalarConverter.hpp"
 #include <cfloat>
 # include <iostream>
-# include <iomanip>
 # include <limits>
 # include <sstream>
 
