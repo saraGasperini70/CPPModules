@@ -1,18 +1,15 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <stdexcept>
 #include <climits>
+#include <vector>
 
 class Span
 {
 	private:
 		unsigned int		_maxSize;
 		unsigned int		_currentSize;
-		int					*_array;
+		std::vector<int>	_vec;
 	public:
 		Span(unsigned int N);
 		Span(const Span &other);
@@ -20,12 +17,13 @@ class Span
 		~Span();
 
 		void addNumber(int number);
+		void addMultipleNumbers(const std::vector<int> &numbers);
 		int shortestSpan() const;
 		int longestSpan() const;
 		unsigned int getMaxSize() const;
 		unsigned int getCurrentSize() const;
 		unsigned int getNumber(int index) const;
-		int *getArray() const;
+		const std::vector<int> &getVec() const;
 };
 
 #endif

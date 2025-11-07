@@ -9,8 +9,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+$(NAME):
+	$(CXX) $(CXXFLAGS) $(SRC) -o $@
 
 clean:
 	rm -f $(OBJ)
