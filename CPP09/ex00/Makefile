@@ -9,9 +9,9 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@printf "Compiling...\n"
-	@$(FLAGS) $(OBJS) -o $(NAME)
+	@$(FLAGS) $(SRCS) -o $(NAME)
 	@printf "READY.\n"
 
 clean:

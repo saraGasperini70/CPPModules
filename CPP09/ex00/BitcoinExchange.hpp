@@ -3,6 +3,7 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
 class BitcoinExchange {
     private:
@@ -11,11 +12,11 @@ class BitcoinExchange {
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& src);
-        BitcoinExchange(std::map<std::string, float> multiplier);
+        BitcoinExchange(std::map<std::string, float> multiplier, std::map<std::string, float> exchange_rate);
         ~BitcoinExchange();
-        BitcoinExchange BitcoinExchange& operator=(const BitcoinExchange& src);
-        void setExchangeRate(std::string exchange);
-        void setMultipliers(std::string multi);
+        BitcoinExchange& operator=(const BitcoinExchange& src);
+        void setExchangeRate(std::vector<std::string> exchange);
+        void setMultipliers(std::vector<std::string> multi);
 };
 
 #endif
