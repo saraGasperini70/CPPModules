@@ -4,26 +4,6 @@
 #include <map>
 #include <cstdlib>
 
-std::map<std::string, float> aToMap(std::vector<std::string> src) { // Should convert a vector to a map, needs to be refactored
-	std::string dividers[2] = {",", "|"};
-	std::map<std::string, float> returnMap;
-	std::cout << "Source string:\n" << src << std::endl;
-	size_t pos = src.find("\n", 0);
-	std::string header = src.substr(0, pos);
-	std::cout << "Pos: " << pos << " Header: " << header << " Header length: " << header.length() << std::endl;
-	for (pos = src.substr(header.length(), pos).find("\n"); pos < src.length(); pos++) {
-		size_t lineDivider = src.find("\n", pos);
-		std::string divider = src.find(dividers[0], pos) != src.npos ? dividers[0] : dividers[1];
-
-		std::string key = src.substr(pos, src.find(divider, pos) - pos);
-		std::string value = src.substr (src.find(divider, pos) + 1, lineDivider);
-		std::cout << "Key: " << key << " Value: " << value << std::endl;
-		returnMap.insert(std::pair<std::string, float>(key, std::atof(value.c_str())));
-		pos = lineDivider;
-	}
-	return returnMap;
-}
-
 BitcoinExchange::BitcoinExchange() {}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& src) : exchange_rate(src.exchange_rate), multiplier(src.multiplier) {}
@@ -47,9 +27,28 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange& src) {
 }
 
 void BitcoinExchange::setExchangeRate(std::vector<std::string> exchange) {
+	std::cout << "Calling setExchangeRate..." << std::endl;
 	this->exchange_rate = aToMap(exchange);
 }
 
 void BitcoinExchange::setMultipliers(std::vector<std::string> multi) {
+	std::cout << "Calling setMultipliers..." << std::endl;
 	this->multiplier = aToMap(multi);
+}
+
+void BitcoinExchange::printData() {
+	std::cout << "Calling printData..." << std::endl;
+	for (std::map<std::string, float>::iterator it = this->exchange_rate.begin(); it != this->exchange_rate.end(); ++it) {
+		if (this->multiplier.find(it->first) != this->multiplier.end()) {
+			const float result = it->second * this->multiplier[it->first];
+			if (result < 0)
+				std::cerr << "Error: not a positive number." << std::endl;
+			else if (result > 1000)
+				std::cerr << "Error: too large a number." << std::endl;
+			else if (!isValidDate(it->first))
+				std::cerr << "Error: bad input => " << it->first << std::endl;
+			else
+				std::cout << it->first << " =>" << this->multiplier[it->first] << " = " << result << std::endl;
+		}
+	}
 }

@@ -2,6 +2,7 @@ NAME = btc
 
 SRCS = BitcoinExchange.cpp \
 	main.cpp \
+	utils.cpp \
 
 FLAGS = c++ -Wall -Wextra -Werror -std=c++98
 

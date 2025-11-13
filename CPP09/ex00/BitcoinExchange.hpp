@@ -4,6 +4,12 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <ctime>
+
+std::map<std::string, float> aToMap(std::vector<std::string> src);
+int ft_atoi(std::string n);
+double ft_atof(std::string n);
+bool isValidDate(std::string date);
 
 class BitcoinExchange {
     private:
@@ -17,6 +23,7 @@ class BitcoinExchange {
         BitcoinExchange& operator=(const BitcoinExchange& src);
         void setExchangeRate(std::vector<std::string> exchange);
         void setMultipliers(std::vector<std::string> multi);
+        void printData();
 };
 
 #endif

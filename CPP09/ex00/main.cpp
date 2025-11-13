@@ -31,5 +31,6 @@ int	main (int ac, char **av) {
 		std::vector<std::string> exchangeRate = dataParse("data.csv");
 		BExchange.setExchangeRate(exchangeRate);
 		BExchange.setMultipliers(inputData);
+        BExchange.printData();
 	}
 }
