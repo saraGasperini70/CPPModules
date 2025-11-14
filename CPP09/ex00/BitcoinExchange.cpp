@@ -1,7 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <iostream>
-#include <string>
-#include <map>
 #include <cstdlib>
 
 BitcoinExchange::BitcoinExchange() {}
@@ -27,28 +24,43 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange& src) {
 }
 
 void BitcoinExchange::setExchangeRate(std::vector<std::string> exchange) {
-	std::cout << "Calling setExchangeRate..." << std::endl;
 	this->exchange_rate = aToMap(exchange);
+	std::cout << "Exchange rate data loaded: " << this->exchange_rate.size() << " entries." << std::endl;
 }
 
 void BitcoinExchange::setMultipliers(std::vector<std::string> multi) {
-	std::cout << "Calling setMultipliers..." << std::endl;
 	this->multiplier = aToMap(multi);
+	std::cout << "Multiplier data loaded: " << this->multiplier.size() << " entries:" << std::endl;
+	for (std::map<std::string, float>::iterator it = this->multiplier.begin(); it != this->multiplier.end(); ++it) {
+		std::cout << it->first << " => " << it->second << std::endl;
+	}
 }
 
 void BitcoinExchange::printData() {
-	std::cout << "Calling printData..." << std::endl;
-	for (std::map<std::string, float>::iterator it = this->exchange_rate.begin(); it != this->exchange_rate.end(); ++it) {
-		if (this->multiplier.find(it->first) != this->multiplier.end()) {
-			const float result = it->second * this->multiplier[it->first];
+	std::vector<std::string> data = dataParse("data.csv");
+	std::vector<std::string> input = dataParse("input.txt");
+	if (data.empty() || input.empty()) {
+		std::cerr << "Error: No data to print." << std::endl;
+		return;
+	}
+	std::vector<std::string>::iterator itd = data.begin();
+	std::vector<std::string>::iterator iti = input.begin();
+	for (itd = data.begin(); itd != data.end(); ++itd) {
+		std::string currDate = itd->substr(0, itd->find(","));
+		if (currDate == findNearestDate(input, itd->substr(0, itd->find(",")))) {
+			float value1 = ft_atof(iti->substr(iti->find("|") + 1));
+			float value2 = ft_atof(itd->substr(itd->find(",") + 1));
+			const float result = value2 * value1;
 			if (result < 0)
 				std::cerr << "Error: not a positive number." << std::endl;
 			else if (result > 1000)
 				std::cerr << "Error: too large a number." << std::endl;
-			else if (!isValidDate(it->first))
-				std::cerr << "Error: bad input => " << it->first << std::endl;
+			else if (!isValidDate(currDate))
+				std::cerr << "Error: bad input => " << currDate << std::endl;
 			else
-				std::cout << it->first << " =>" << this->multiplier[it->first] << " = " << result << std::endl;
+				std::cout << currDate << " => " << value1 << " = " << result << std::endl;
 		}
+		if (iti != input.end())
+			++iti;
 	}
 }

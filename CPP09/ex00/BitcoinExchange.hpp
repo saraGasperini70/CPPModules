@@ -5,11 +5,17 @@
 #include <string>
 #include <vector>
 #include <ctime>
+#include <algorithm>
+#include <iostream>
+#include <sstream>
+#include <fstream>
 
 std::map<std::string, float> aToMap(std::vector<std::string> src);
 int ft_atoi(std::string n);
 double ft_atof(std::string n);
 bool isValidDate(std::string date);
+std::string findNearestDate(std::vector<std::string> data, std::string dateToCmp);
+std::vector<std::string> dataParse(std::string dataFile);
 
 class BitcoinExchange {
     private:
