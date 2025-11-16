@@ -69,7 +69,7 @@
 		"variant": "cpp"
 	},
 	"chat.disableAIFeatures": false,
-	"editor.tabCompletion": "onlySnippets",
+	"editor.tabCompletion": "off",
 	"editor.defaultFormatter": "ms-vscode.cpptools-extension-pack",
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": true

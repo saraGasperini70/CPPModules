@@ -1,17 +1,18 @@
 #include "BitcoinExchange.hpp"
+#include <exception>
 
 int	main (int ac, char **av) {
 	if (ac < 2) {
-		std::cout << "Usage: ./btc <filename>" << std::endl;
+		std::cout << "Error: could not open file." << std::endl;
+		return (1);
 	}
-	else {
+	try {
 		BitcoinExchange BExchange;
-		std::vector<std::string> inputData = dataParse(av[1]);
-		std::vector<std::string> exchangeRate = dataParse("data.csv");
-        std::cout << "Loaded " << inputData.size() << " lines from " << av[1] << std::endl;
-        std::cout << "Loaded " << exchangeRate.size() << " lines from data.csv" << std::endl;
-		BExchange.setExchangeRate(exchangeRate);
-		BExchange.setMultipliers(inputData);
-        BExchange.printData();
+		BExchange.printData(av[1]);
 	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (0);
 }

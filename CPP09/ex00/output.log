@@ -1,0 +1,16 @@
+Mapped: 2011-01-03 => 3
+Mapped: 2011-01-03 => 2
+Mapped: 2011-01-03 => 1
+Mapped: 2011-01-03 => 1.2
+Mapped: 2011-01-09 => 1
+Error: not a positive number: -1
+Mapped: 2012-01-11 => -1
+Error: too large a number: 2001-42-42
+Mapped: 2001-42-42 => 2001
+Mapped: 2012-01-11 => 1
+Error: too large a number:  2147483648
+Mapped: 2012-01-11 => 2.14748e+09
+Mapped: 2021-05-06 => 3.1
+Mapped: 2011-10-11 => 5
+Error: bad input => 2001-42-42
+basic_string::substr: __pos (which is 9) > this->size() (which is 0)
