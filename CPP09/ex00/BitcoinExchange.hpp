@@ -16,17 +16,22 @@ std::map<std::string, double> aToMap(std::vector<std::string> src);
 int ft_atoi(std::string n, std::string date);
 double ft_atof(std::string n, std::string date);
 bool isValidDate(std::string date);
-std::string findNearestDate(std::vector<std::string> data, std::string dateToCmp);
-std::vector<std::string> dataParse(std::string dataFile);
+std::vector<std::string>::iterator findNearestDate(std::vector<std::string> data, std::string dateToCmp);
+std::map<std::string, double> dataParse(std::string dataFile);
 std::string removeSpaces(std::string div);
 double validatePrice(std::string const &priceStr);
 
 class BitcoinExchange {
+    private:
+        std::map<std::string, double> _inputs;
+
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& src);
         ~BitcoinExchange();
-        BitcoinExchange& operator=(const BitcoinExchange& src);
+        BitcoinExchange &operator=(const BitcoinExchange &src);
+        std::map<std::string, double> getInputs();
+        void setInputs(std::string fileName);
         void printData(std::string file);
         class BadFile : public std::exception {
             public:
