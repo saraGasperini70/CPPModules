@@ -2,29 +2,6 @@
 #include <cctype>
 #include <sstream>
 
-std::map<std::string, double> aToMap(std::vector<std::string> src) {
-	std::string dividers[2] = {",", "|"};
-	std::map<std::string, double> returnMap;
-	long unsigned int pos = 1;
-	for (pos = 1; pos < src.size(); ++pos) {
-		std::string divider = src[pos].find(dividers[0]) != src[pos].npos ? dividers[0] : dividers[1];
-		std::string key = src[pos].substr(0, src[pos].find(divider) - 1);
-		double value = validatePrice(src[pos].substr(src[pos].find(divider) + 1));
-		returnMap.insert(std::pair<std::string, double>(key, value));
-	}
-	return returnMap;
-}
-
-int ft_atoi(std::string n, std::string date) {
-	int i;
-	if (n.compare("null") == 0) {
-		std::cout << "Error: bad input =>" << n << date << std::endl;
-		n = "-1";
-	}
-	std::stringstream(n) >> i;
-	return (i);
-}
-
 double ft_atof(std::string n, std::string date) {
 	double i;
 	if (n.find("-") != n.npos) {
@@ -74,7 +51,7 @@ std::map<std::string, double> dataParse(std::string dataFile) {
 	std::map<std::string, double> returnMap;
 	while (std::getline(inFile, line)) {
 		std::string divider = line.find(dividers[0]) != line.npos ? dividers[0] : dividers[1];
-		std::string key = line.substr(0, line.find(divider) - 1);
+		std::string key = removeSpaces(line.substr(0, line.find(divider)));
 		std::string value = line.substr(line.find(divider) + 1);
 		returnMap.insert(std::pair<std::string, double>(key, ft_atof(value, key)));
 	}

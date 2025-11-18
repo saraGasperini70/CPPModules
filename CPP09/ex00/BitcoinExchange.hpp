@@ -3,7 +3,6 @@
 
 #include <map>
 #include <string>
-#include <vector>
 #include <ctime>
 #include <cctype>
 #include <algorithm>
@@ -12,11 +11,8 @@
 #include <fstream>
 #include <cstdlib>
 
-std::map<std::string, double> aToMap(std::vector<std::string> src);
-int ft_atoi(std::string n, std::string date);
 double ft_atof(std::string n, std::string date);
 bool isValidDate(std::string date);
-std::vector<std::string>::iterator findNearestDate(std::vector<std::string> data, std::string dateToCmp);
 std::map<std::string, double> dataParse(std::string dataFile);
 std::string removeSpaces(std::string div);
 double validatePrice(std::string const &priceStr);

@@ -42,6 +42,7 @@ void BitcoinExchange::printData(std::string file) {
 		std::getline(linestr, date, '|');
 		std::getline(linestr, value, '|');
 		date = removeSpaces(date);
+		//std::cout << "Debug: Processing line with date: " << date << " and value: " << value << std::endl;
 		if (!isValidDate(date)){
 			std::cout << "Error: bad input => " << date << std::endl;
 			continue ;
@@ -59,11 +60,12 @@ void BitcoinExchange::printData(std::string file) {
 					continue ;
 				}
 				if (itl == _inputs.begin())
-					std::cout << date << " => " << numValue << " = " << numValue * itl->second << std::endl;
+				std::cout << date << " => " << numValue << " = " << numValue * itl->second << std::endl;
 				else {
-					itl--;
+					--itl;
 					std::cout << date << " => " << numValue << " = " << numValue * itl->second << std::endl;
 				}
+				//std::cout << "Debug: lower_bound for " << date << " is " << itl->first << std::endl;
 			}
 		}
 	}
