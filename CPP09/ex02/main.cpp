@@ -8,7 +8,7 @@ int main(int ac, char **av) {
 		return 1;
 	}
 	else if (ac == 2) {
-		PmergeMe < std::vector<int> > mergeme(av[1]);
+		PmergeMe < std::vector<int> > mergeme_vector(av[1]);
 		PmergeMe < std::list<int> > mergeme_list(av[1]);
 	}
 	else if (ac > 2) {
@@ -18,7 +18,7 @@ int main(int ac, char **av) {
 			if (i != ac - 1)
 				str += " ";
 		}
-		PmergeMe < std::vector<int> > mergeme(str);
+		PmergeMe < std::vector<int> > mergeme_vector(str);
 		PmergeMe < std::list<int> > mergeme_list(str);
 	}
 	return 0;
