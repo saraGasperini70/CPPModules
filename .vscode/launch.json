@@ -1,0 +1,17 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+
+		{
+			"name": "Launch",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceRoot}/CPP09/ex02/PmergeMe",
+			"args": ["15      25      1       30      7       8     27      29      18      14      4       26      23      9       12      5       11      10      17    21      13      28      3       16      6       19      24      2       22      20"],
+			"cwd": "${workspaceRoot}/CPP09/ex02",
+		}
+	]
+}

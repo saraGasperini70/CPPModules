@@ -1,6 +1,8 @@
 NAME = PmergeMe
 
 SRCS = main.cpp \
+		PmergeMe.cpp \
+		listFunctions.cpp \
 
 INCS = PmergeMe.hpp
 

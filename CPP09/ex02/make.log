@@ -1,0 +1,70 @@
+Before: 15 25 1 30 7 8 27 29 18 14 4 26 23 9 12 5 11 10 17 21 13 28 3 16 6 19 24 2 22 20 
+I — Merging1. Split the list into smaller pairs. The size of each pair is 1
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging3. Repeat with increasing order multiplying by 2 each time.
+I — Merging1. Split the list into smaller pairs. The size of each pair is 2
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging3. Repeat with increasing order multiplying by 2 each time.
+I — Merging1. Split the list into smaller pairs. The size of each pair is 4
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging3. Repeat with increasing order multiplying by 2 each time.
+I — Merging1. Split the list into smaller pairs. The size of each pair is 8
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging2. Sort each pair individually using insertion sort.
+I — Merging3. Repeat with increasing order multiplying by 2 each time.
+II — Inserting1. Generating pend and main.
+II — Inserting2. Sort the pend pairs into the main set based on the last element of each pair. We use binary search, optimized with the Jacobsthal sequence, and repeat the process while dividing the order (pair size) by 2 each time.
+II — Inserting3. Finally, insert any remaining elements from pend into main using binary search.
+II — Inserting1. Generating pend and main.
