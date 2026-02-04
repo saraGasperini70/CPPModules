@@ -49,8 +49,6 @@ int AForm::getExecuteGrade(void) const
 	return (this->toExecuteGrade);
 }
 
-// Removed setName method as 'name' is a const member and cannot be modified.
-
 void AForm::setIsSigned(bool isSigned)
 {
 	this->isSigned = isSigned;

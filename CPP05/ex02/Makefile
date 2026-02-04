@@ -24,6 +24,7 @@ clean:
 
 fclean: clean
 	@rm -rf *.o $(NAME)
+	@rm -rf default_shrubbery
 	@printf "All cleared\n"
 
 re: fclean all

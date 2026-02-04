@@ -23,10 +23,7 @@ Intern::~Intern()
 Intern &Intern::operator=(const Intern &src)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &src)
-	{
-		// No members to assign
-	}
+	if (this != &src) {}
 	return *this;
 }
 

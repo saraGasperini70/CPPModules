@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+
 //Constructor/deconstructor
 Form::Form(void): toSignGrade(150), toExecuteGrade(150)
 {
@@ -24,6 +25,7 @@ Form::~Form()
 {
 	std::cout << "Form deconstructor called." << std::endl;
 }
+
 //Getters/Setters
 std::string Form::getName(void) const
 {
@@ -44,8 +46,6 @@ int Form::getExecuteGrade(void) const
 {
 	return (this->toExecuteGrade);
 }
-
-// Removed setName method as 'name' is a const member and cannot be modified.
 
 void Form::setIsSigned(bool isSigned)
 {
