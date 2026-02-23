@@ -4,6 +4,7 @@ int	main(void)
 {
 	Data data;
 	Data *dataPtr = &data;
+	// Serializer serial;
 
 	std::cout << "Original Data pointer: " << dataPtr << std::endl;
 

@@ -30,6 +30,8 @@ int	main(void)
 		std::cout << e.what() << std::endl;
 	}
 	delete bureaucrat;
+	delete bureaucrat2;
 	delete form;
+	delete form2;
 	return (0);
 }

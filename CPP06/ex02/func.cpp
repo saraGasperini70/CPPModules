@@ -44,7 +44,9 @@ void identify(Base& p)
 		std::cout << "Identified class A" << std::endl;
 		(void)a;
 	}
-	catch (std::bad_cast &e) {}
+	catch (std::exception &e) {
+		// std::cout << e.what() << std::endl;
+	}
 
 	try
 	{
@@ -52,7 +54,9 @@ void identify(Base& p)
 		std::cout << "Identified class B" << std::endl;
 		(void)b;
 	}
-	catch (std::bad_cast &e) {}
+	catch (std::exception &e) {
+		// std::cout << e.what() << std::endl;
+	}
 
 	try
 	{
@@ -60,5 +64,7 @@ void identify(Base& p)
 		std::cout << "Identified class C" << std::endl;
 		(void)c;
 	}
-	catch (std::bad_cast &e) {}
+	catch (std::exception &e) {
+		// std::cout << e.what() << std::endl;
+	}
 }

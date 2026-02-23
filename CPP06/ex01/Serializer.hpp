@@ -24,14 +24,16 @@ struct Data
 
 class Serializer
 {
-	public:
+	private:
 		Serializer();
+	public:
 		Serializer(const Serializer &src);
 		~Serializer();
 		Serializer &operator=(const Serializer &src);
 
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
+		virtual void cannotUseThis() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, const Data &src);

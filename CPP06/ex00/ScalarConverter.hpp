@@ -8,15 +8,14 @@
 
 class ScalarConverter
 {
-	public:
+	private:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &src);
 		~ScalarConverter();
 		ScalarConverter &operator=(const ScalarConverter &src);
-
-		static void convert(std::string str);
-
+		
 	public:
+		static void convert(std::string str);
 		// Exception classes
 		class InvalidInputException : public std::exception
 		{
