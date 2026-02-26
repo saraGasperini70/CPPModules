@@ -18,18 +18,18 @@ void reverse_int_array(int &elem)
 	elem = -elem;
 }
 
-template void	print_elem<int>(int&);
-template void	print_elem<const int>(const int&);
-template void	print_elem<std::string>(std::string&);
-template void	print_elem<const std::string>(const std::string&);
+// template void	print_elem<int>(int&);
+// template void	print_elem<const int>(const int&);
+// template void	print_elem<std::string>(std::string&);
+// template void	print_elem<const std::string>(const std::string&);
 
 int	main(void)
 {
 	int		array[5] = {1, 2, 3, 4, 5};
 	std::string	strArray[3] = {"Hello", "World", "!"};
-	int  const array2[5] = {5, 4, 3, 2, 1};
+	int const array2[5] = {5, 4, 3, 2, 1};
 	std::string const 	strArray2[3] = {"Hollo", "!", "Worlo"};
-	size_t	len = 5;
+	const size_t	len = 5;
 
 	std::cout << "Original int array: ";
 	for (size_t i = 0; i < len; i++) {
