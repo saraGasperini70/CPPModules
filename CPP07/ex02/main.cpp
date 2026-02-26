@@ -17,11 +17,6 @@ int main(int, char**)
 		numbers[i] = value;
 		mirror[i] = value;
 	}
-	// //Test prints
-	// for (int i = 0; i < MAX_VAL; i++)
-	// {
-	// 	std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
-	// }
 	//SCOPE
 	{
 		Array<int> tmp = numbers;
@@ -36,14 +31,14 @@ int main(int, char**)
 			return 1;
 		}
 	}
-	// try
-	// {
-	// 	numbers[-2] = 0;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
+	try
+	{
+		numbers[-2] = 0;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	try
 	{
 		std::cout << "numbers[MAX_VAL - 1] = " << numbers[MAX_VAL - 1] << std::endl;

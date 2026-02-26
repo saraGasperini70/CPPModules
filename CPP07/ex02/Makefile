@@ -1,6 +1,6 @@
 NAME = array
 
-SRCS = main.cpp
+SRCS = main.cpp \
 
 INCS = Array.hpp
 
@@ -12,9 +12,9 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):
 	@echo "Compiling..."
-	@$(CXX) $(FLAGS) -o $(NAME) $(OBJS)
+	@$(CXX) $(FLAGS) $(SRCS) -o $(NAME)
 	@echo "Done!"
 
 %.o: %.cpp
