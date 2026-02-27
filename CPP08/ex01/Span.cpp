@@ -27,16 +27,28 @@ Span::~Span() {
 	_vec.clear();
 }
 
+const char* Span::SpanFullException::what() const throw() {
+	return "Exception: Span is full";
+}
+
+const char* Span::FewElementsException::what() const throw() {
+	return "Exception: Not enough elements to find a span";
+}
+
+const char* Span::OutOfRangeException::what() const throw() {
+	return "Index out of range";
+}
+
 void Span::addNumber(int number) {
 	if (_currentSize >= _maxSize) {
-		throw std::length_error("Span is full");
+		throw SpanFullException();
 	}
 	_vec[_currentSize++] = number;
 }
 
 int Span::shortestSpan() const {
 	if (_currentSize < 2) {
-		throw std::logic_error("Not enough elements to find a span");
+		throw FewElementsException();
 	}
 	int minSpan = INT_MAX;
 	for (unsigned int i = 0; i < _currentSize - 1; ++i) {
@@ -52,7 +64,7 @@ int Span::shortestSpan() const {
 
 int Span::longestSpan() const {
 	if (_currentSize < 2) {
-		throw std::logic_error("Not enough elements to find a span");
+		throw FewElementsException();
 	}
 	int maxElement = *std::max_element(_vec.begin(), _vec.begin() + _currentSize);
 	int minElement = *std::min_element(_vec.begin(), _vec.begin() + _currentSize);
@@ -73,7 +85,7 @@ std::vector<int> const &Span::getVec() const {
 
 unsigned int Span::getNumber(int index) const {
 	if (index < 0 || index >= static_cast<int>(_currentSize)) {
-		throw std::out_of_range("Index out of range");
+		throw OutOfRangeException();
 	}
 	return _vec[index];
 }
@@ -81,7 +93,7 @@ unsigned int Span::getNumber(int index) const {
 void Span::addMultipleNumbers(const std::vector<int> &numbers) {
 	std::cout << "Adding multiple numbers; final size will be: " << _currentSize + numbers.size() << std::endl;
 	if (_currentSize + numbers.size() > _maxSize) {
-		throw std::length_error("Not enough space to add all numbers");
+		throw SpanFullException();
 	}
 	_vec.insert(_vec.begin() + _currentSize, numbers.begin(), numbers.end());
 	_currentSize += numbers.size();

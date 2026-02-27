@@ -13,7 +13,6 @@ std::string to_string(T n) {
 }
 
 template <typename T>
-// Find the first occurrence of n in the container cont
 void	easyfind(T &cont, int n)
 {
 	typename T::iterator iter = std::find(cont.begin(), cont.end(), n);

@@ -24,6 +24,21 @@ class Span
 		unsigned int getCurrentSize() const;
 		unsigned int getNumber(int index) const;
 		const std::vector<int> &getVec() const;
+		class SpanFullException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		}; 
+		class FewElementsException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		class OutOfRangeException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif
