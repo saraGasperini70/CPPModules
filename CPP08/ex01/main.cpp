@@ -1,8 +1,4 @@
 #include "Span.hpp"
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-#include <ctime>
 
 int	main(void)
 {

@@ -1,8 +1,4 @@
 #include "Span.hpp"
-#include <algorithm>
-#include <stdexcept>
-#include <vector>
-#include <iostream>
 
 Span::Span(unsigned int N) : _maxSize(N), _currentSize(0) {
 	_vec = std::vector<int>(N);

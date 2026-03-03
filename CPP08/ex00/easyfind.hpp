@@ -3,7 +3,9 @@
 # include <algorithm>
 # include <iterator>
 # include <iostream>
-#include <sstream>
+# include <sstream>
+# include <vector>
+# include <list>
 
 template <typename T>
 std::string to_string(T n) {

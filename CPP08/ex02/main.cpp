@@ -1,6 +1,4 @@
 #include "MutantStack.hpp"
-#include <iostream>
-#include <vector>
 
 int main(void)
 {

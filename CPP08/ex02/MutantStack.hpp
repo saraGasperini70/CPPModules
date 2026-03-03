@@ -3,6 +3,8 @@
 
 #include <stack>
 #include <algorithm>
+#include <iostream>
+#include <vector>
 
 template <typename T>
 class MutantStack : public std::stack<T>
