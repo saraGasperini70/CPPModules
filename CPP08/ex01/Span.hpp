@@ -23,9 +23,9 @@ class Span
 		~Span();
 
 		void addNumber(int number);
-		void addMultipleNumbers(const std::vector<int> &numbers);
-		int shortestSpan() const;
-		int longestSpan() const;
+		void addNumber(const std::vector<int> &numbers);
+		unsigned int shortestSpan();
+		int longestSpan();
 		unsigned int getMaxSize() const;
 		unsigned int getCurrentSize() const;
 		unsigned int getNumber(int index) const;

@@ -42,23 +42,22 @@ void Span::addNumber(int number) {
 	_vec[_currentSize++] = number;
 }
 
-int Span::shortestSpan() const {
+unsigned int Span::shortestSpan() {
 	if (_currentSize < 2) {
 		throw FewElementsException();
 	}
-	int minSpan = INT_MAX;
-	for (unsigned int i = 0; i < _currentSize - 1; ++i) {
-		for (unsigned int j = i + 1; j < _currentSize; ++j) {
-			int span = abs(_vec[i] - _vec[j]);
-			if (span < minSpan) {
-				minSpan = span;
-			}
-		}
+	std::vector<int> tmp = this->_vec;
+	unsigned int minSpan = static_cast<unsigned int>(tmp[1] - tmp[0]);
+	std::sort(tmp.begin(), tmp.end());
+	for (std::vector<int>::size_type i = 2; i < tmp.size() - 1; i++) {
+		unsigned int diff = static_cast<unsigned int>(tmp[i] - tmp[i - 1]);
+		if (diff < minSpan)
+			minSpan = diff;
 	}
 	return minSpan;
 }
 
-int Span::longestSpan() const {
+int Span::longestSpan() {
 	if (_currentSize < 2) {
 		throw FewElementsException();
 	}
@@ -86,7 +85,7 @@ unsigned int Span::getNumber(int index) const {
 	return _vec[index];
 }
 
-void Span::addMultipleNumbers(const std::vector<int> &numbers) {
+void Span::addNumber(const std::vector<int> &numbers) {
 	std::cout << "Adding multiple numbers; final size will be: " << _currentSize + numbers.size() << std::endl;
 	if (_currentSize + numbers.size() > _maxSize) {
 		throw SpanFullException();

@@ -2,6 +2,15 @@
 
 int	main(void)
 {
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
 	// Create a Span object with a maximum size of 5
 	Span span(5);
 	std::vector<int> tinyAdd;
@@ -16,7 +25,7 @@ int	main(void)
 	}
 
 	// Create a span object with a maximum size that is more than 10000
-	Span largeSpan(15000);
+	Span largeSpan(1000);
 	std::vector<int> largeAdd;
 	srand(time(0));
 	try {
@@ -29,14 +38,8 @@ int	main(void)
 	}
 
 	try {
-		// for (unsigned int i = 0; i < span.getMaxSize(); ++i) {
-		// 	span.addNumber(tinyAdd[i]);
-		// }
-		span.addMultipleNumbers(tinyAdd);
-		// for (unsigned int i = 0; i < largeSpan.getMaxSize(); ++i) {
-		// 	largeSpan.addNumber(largeAdd[i]);
-		// }
-		largeSpan.addMultipleNumbers(largeAdd);
+		span.addNumber(tinyAdd);
+		largeSpan.addNumber(largeAdd);
 		std::cout << "Span contents: ";
 		for (unsigned int i = 0; i < span.getMaxSize(); ++i) {
 			std::cout << span.getNumber(i) << " ";
