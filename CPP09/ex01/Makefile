@@ -9,13 +9,17 @@ INCS = RPN.hpp
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
+
+CLANGXX = clang++
+
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME):
 	@echo "Compiling..."
-	@$(CXX) $(FLAGS) $(SRCS) -o $(NAME)
+# 	@$(CXX) $(FLAGS) $(SRCS) -o $(NAME)
+	@$(CLANGXX) $(FLAGS) $(SRCS) -o $(NAME)
 	@echo "Done!"
 
 clean:

@@ -29,18 +29,19 @@ void BitcoinExchange::printData(std::string file) {
 	std::ifstream inFile;
 	inFile.open(file.c_str());
 	if (!inFile.is_open())
-		throw BadFileInput();
+		throw BitcoinExchange::BadFileFormat();
 
 	std::string line;
 	std::getline(inFile, line);
 	if (line != "date | value")
-		throw BadFileInput();
+		throw BitcoinExchange::BadFileFormat();
 	while (std::getline(inFile, line)) {
 		std::string date;
 		std::string value;
 		std::stringstream linestr(line);
 		std::getline(linestr, date, '|');
 		std::getline(linestr, value, '|');
+		// std::cout << "Here date is: " << date << "and value is: " << value << std::endl;
 		date = removeSpaces(date);
 		if (!isValidDate(date)){
 			std::cout << "Error: bad input => " << date << std::endl;

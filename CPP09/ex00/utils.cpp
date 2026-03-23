@@ -3,18 +3,19 @@
 #include <sstream>
 
 double ft_atof(std::string n, std::string date) {
-	double i;
+	double i = 0;
 	if (n.find("-") != n.npos) {
 		std::cout << "Error: not a positive number: " << n << std::endl;
 		return (-1);
 	}
 	if (n.find("null") != n.npos) {
-		std::cout << "Error: bad input =>" << n << date << std::endl;
+		std::cout << "Error: bad input => " << n << date << std::endl;
 		return (-1);
 	}
-	std::stringstream(n);
+	std::stringstream ss;
+	ss << n;
 	if (!(ss >> i)) {
-		std::cout << "Error: bad input =>" << n << date << std::endl;
+		std::cout << "Error: bad input => " << n << date << std::endl;
 		return (-1);
 	}
 	return (i);
@@ -46,10 +47,11 @@ std::map<std::string, double> dataParse(std::string dataFile) {
 
     inFile.open(dataFile.c_str());
     if (!inFile.is_open()) {
-        throw BadFile;
+        std::cout << "Error: bad file." << std::endl;
         return (std::map<std::string, double>());
     }
     std::string line;
+	std::getline(inFile, line);
 	std::string dividers[2] = {",", "|"};
 	std::map<std::string, double> returnMap;
 	while (std::getline(inFile, line)) {
@@ -68,23 +70,27 @@ double validatePrice(std::string const &priceStr) {
 	std::stringstream streamValue(priceStr);
 	size_t firstMinus = priceStr.find("-");
 	size_t lastMinus = priceStr.rfind("-");
-	bool multipleMinus = (firstMinus != std::npos && firstMinus != lastMinus);
+	bool multipleMinus = (firstMinus != std::string::npos && firstMinus != lastMinus);
 	if(!(streamValue >> returnPrice) || multipleMinus) {
-		throw BadValueInput();
+		std::cout << "Error: Bad value input." << std::endl;
 		return (-1);
 	}
 	else if (returnPrice < 0) {
-		throw NegativeNumber();
+		// std::cout << "Here return price is: " << returnPrice << std::endl;
+		std::cout << "Error: Negative number not allowed." << std::endl;
 		return (-1);
 	}
 	else if (returnPrice > 1000) {
-		throw NumberTooLarge();
+		std::cout << "Error: too large a number." << std::endl;
 		return (-1);
 	}
 	return (returnPrice);
 }
 
 std::string removeSpaces(std::string div) {
-	div.erase(std::remove(div.begin(), div.end(), ' '));
+	for (int i = div.length(); i >= 0; i--) {
+		if (div.find(' ') != div.npos) 
+			div.erase(div.find(' '), 1);
+	}
 	return (div);
 }

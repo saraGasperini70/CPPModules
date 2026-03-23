@@ -77,6 +77,6 @@ class BitcoinExchange {
                 {
                     return "Error: bad value input";
                 }
-        }
+        };
     };
 #endif

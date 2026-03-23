@@ -15,13 +15,15 @@ INCS = PmergeMe.hpp
 OBJS = $(SRCS:.cpp=.o) $(SRC_PROGRAM:.cpp=.o) $(SRC_TESTER:.cpp=.o)
 
 CXX = c++
+CLANGXX = clang++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 
 $(NAME):
 	@echo "Compiling..."
-	@$(CXX) $(FLAGS) $(SRC_PROGRAM) $(SRCS) -o $(NAME)
+	@$(CLANGXX) $(FLAGS) $(SRC_PROGRAM) $(SRCS) -o $(NAME)
+# 	@$(CXX) $(FLAGS) $(SRC_PROGRAM) $(SRCS) -o $(NAME)
 	@echo "Done!"
 
 clean:
