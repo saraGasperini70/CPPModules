@@ -12,12 +12,15 @@ double ft_atof(std::string n, std::string date) {
 		std::cout << "Error: bad input =>" << n << date << std::endl;
 		return (-1);
 	}
-	std::stringstream(n) >> i;
+	std::stringstream(n);
+	if (!(ss >> i)) {
+		std::cout << "Error: bad input =>" << n << date << std::endl;
+		return (-1);
+	}
 	return (i);
 }
 
 bool isValidDate(std::string date) {
-	//Year-Month-Day
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		return (false);
 	for (int i = 0; i < 10; i++) {
@@ -43,7 +46,7 @@ std::map<std::string, double> dataParse(std::string dataFile) {
 
     inFile.open(dataFile.c_str());
     if (!inFile.is_open()) {
-        std::cout << "Error: " << dataFile << " is not a file or doesn't exist." << std::endl;
+        throw BadFile;
         return (std::map<std::string, double>());
     }
     std::string line;
@@ -55,7 +58,6 @@ std::map<std::string, double> dataParse(std::string dataFile) {
 		std::string value = line.substr(line.find(divider) + 1);
 		returnMap.insert(std::pair<std::string, double>(key, ft_atof(value, key)));
 	}
-    // std::cout << "Finished reading " << dataFile << " with " << data.size() << " lines." << std::endl;
     inFile.close();
     return (returnMap);
 }
@@ -64,25 +66,25 @@ double validatePrice(std::string const &priceStr) {
 	double returnPrice;
 
 	std::stringstream streamValue(priceStr);
-	if(!(streamValue >> returnPrice) || priceStr.find("-") < priceStr.rfind("-")) {
-		std::cout << "Error: bad value input: " << priceStr << std::endl;
+	size_t firstMinus = priceStr.find("-");
+	size_t lastMinus = priceStr.rfind("-");
+	bool multipleMinus = (firstMinus != std::npos && firstMinus != lastMinus);
+	if(!(streamValue >> returnPrice) || multipleMinus) {
+		throw BadValueInput();
 		return (-1);
 	}
 	else if (returnPrice < 0) {
-		std::cout << "Error: not a positive number: " << priceStr << std::endl;
+		throw NegativeNumber();
 		return (-1);
 	}
 	else if (returnPrice > 1000) {
-		std::cout << "Error: too large a number: " << priceStr << std::endl;
+		throw NumberTooLarge();
 		return (-1);
 	}
 	return (returnPrice);
 }
 
 std::string removeSpaces(std::string div) {
-	for (size_t i = 0; i < div.size(); i++) {
-		if (div[i] == ' ')
-			div.erase(i, 1);
-	}
+	div.erase(std::remove(div.begin(), div.end(), ' '));
 	return (div);
 }

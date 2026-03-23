@@ -10,17 +10,17 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	@printf "Compiling...\n"
+	@echo "Compiling...\n"
 	@$(FLAGS) $(SRC) -o $(NAME)
-	@printf "READY.\n"
+	@echo "READY.\n"
 
 clean:
 	@rm -rf megaphone.o
-	@printf "Object deleted\n"
+	@echo "Object deleted\n"
 
 fclean: clean
 	@rm -rf megaphone.o $(NAME)
-	@printf "All cleared\n"
+	@echo "All cleared\n"
 
 re: fclean all
 

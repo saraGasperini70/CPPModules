@@ -49,5 +49,22 @@ int main(void)
 		std::cout << "Vector: " << *vit << std::endl;
 		++vit;
 	}
+
+	mstack.push(76);
+	vect.push_back(76);
+	MutantStack<int>::iterator svit = mstack.begin();
+	MutantStack<int>::iterator nvit = mstack.end();
+	std::vector<int>::iterator svite = vect.begin();
+	std::vector<int>::iterator vvite = vect.end();
+
+	std::cout << "MutantStack current size: " << mstack.size() << std::endl;
+	std::cout << "Vector current size: " << vect.size() << std::endl;
+
+	for (svit = mstack.begin(); svit != nvit; svit++)
+		std::cout << "MutantStack: " << *svit << std::endl;
+
+	for (svite = vect.begin(); svite != vvite; svite++)
+		std::cout << "Vector: " << *svite << std::endl;
+
 	return 0;
 }

@@ -47,9 +47,9 @@ unsigned int Span::shortestSpan() {
 		throw FewElementsException();
 	}
 	std::vector<int> tmp = this->_vec;
-	unsigned int minSpan = static_cast<unsigned int>(tmp[1] - tmp[0]);
 	std::sort(tmp.begin(), tmp.end());
-	for (std::vector<int>::size_type i = 2; i < tmp.size() - 1; i++) {
+	unsigned int minSpan = static_cast<unsigned int>(tmp[1] - tmp[0]);
+	for (std::vector<int>::size_type i = 2; i < tmp.size(); i++) {
 		unsigned int diff = static_cast<unsigned int>(tmp[i] - tmp[i - 1]);
 		if (diff < minSpan)
 			minSpan = diff;

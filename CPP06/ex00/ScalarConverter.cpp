@@ -38,7 +38,7 @@ void printInt(int i) {
 	}
 }
 
-void printFloat(float f) {
+void echoloat(float f) {
 	if (f >= FLT_MIN && f <= FLT_MAX) {
 		std::cout << "float: " << f << "f" << std::endl;
 	} else {
@@ -121,7 +121,7 @@ void ScalarConverter::convert(std::string str) {
 			sstr >> c;
 			printChar(c);
 			printInt(static_cast<int>(c));
-			printFloat(static_cast<float>(c));
+			echoloat(static_cast<float>(c));
 			printDouble(static_cast<double>(c));
 		}
 	else if (isInt(str)) {
@@ -129,7 +129,7 @@ void ScalarConverter::convert(std::string str) {
 			sstr >> i;
 			printChar(static_cast<char>(i));
 			printInt(i);
-			printFloat(static_cast<float>(i));
+			echoloat(static_cast<float>(i));
 			printDouble(static_cast<double>(i));
 		}
 	else if (isFloat(str)) {
@@ -137,7 +137,7 @@ void ScalarConverter::convert(std::string str) {
 			sstr >> f;
 			printChar(static_cast<char>(f));
 			printInt(static_cast<int>(f));
-			printFloat(f);
+			echoloat(f);
 			printDouble(static_cast<double>(f));
 		}
 	else if (isDouble(str)) {
@@ -145,7 +145,7 @@ void ScalarConverter::convert(std::string str) {
 			sstr >> d;
 			printChar(static_cast<char>(d));
 			printInt(static_cast<int>(d));
-			printFloat(static_cast<float>(d));
+			echoloat(static_cast<float>(d));
 			printDouble(d);
 		}
 	else

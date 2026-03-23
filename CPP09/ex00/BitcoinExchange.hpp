@@ -29,11 +29,18 @@ class BitcoinExchange {
         std::map<std::string, double> getInputs();
         void setInputs(std::string fileName);
         void printData(std::string file);
+        class BadFileFormat : public std::exception {
+            public:
+                virtual const char *what() const throw()
+                {
+                    return "Error: Invalid input file format; should be: date,exchange_rate";
+                }
+        };
         class BadFile : public std::exception {
             public:
                 virtual const char *what() const throw()
                 {
-                    return "Invalid input file format; should be: date,exchange_rate";
+                    return "Error: file not found";
                 }
         };
         class NegativeNumber : public std::exception {
@@ -64,5 +71,12 @@ class BitcoinExchange {
                     return "Error: invalid or empty data files";
                 }
         };
+        class BadValueInput : public std::exception {
+            public:
+                virtual const char *what() const throw()
+                {
+                    return "Error: bad value input";
+                }
+        }
     };
 #endif

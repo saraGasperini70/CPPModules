@@ -29,12 +29,12 @@ void BitcoinExchange::printData(std::string file) {
 	std::ifstream inFile;
 	inFile.open(file.c_str());
 	if (!inFile.is_open())
-		throw BadFile();
+		throw BadFileInput();
 
 	std::string line;
 	std::getline(inFile, line);
 	if (line != "date | value")
-		throw BadFile();
+		throw BadFileInput();
 	while (std::getline(inFile, line)) {
 		std::string date;
 		std::string value;
@@ -42,7 +42,6 @@ void BitcoinExchange::printData(std::string file) {
 		std::getline(linestr, date, '|');
 		std::getline(linestr, value, '|');
 		date = removeSpaces(date);
-		//std::cout << "Debug: Processing line with date: " << date << " and value: " << value << std::endl;
 		if (!isValidDate(date)){
 			std::cout << "Error: bad input => " << date << std::endl;
 			continue ;
@@ -55,17 +54,12 @@ void BitcoinExchange::printData(std::string file) {
 			}
 			else {
 				std::map<std::string, double>::iterator itl = _inputs.lower_bound(date);
-				if (numValue > 1000) {
-					std::cout << "Error: too large a number: " << value << std::endl;
-					continue ;
-				}
 				if (itl == _inputs.begin())
 				std::cout << date << " => " << numValue << " = " << numValue * itl->second << std::endl;
 				else {
 					--itl;
 					std::cout << date << " => " << numValue << " = " << numValue * itl->second << std::endl;
 				}
-				//std::cout << "Debug: lower_bound for " << date << " is " << itl->first << std::endl;
 			}
 		}
 	}
