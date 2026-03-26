@@ -13,7 +13,7 @@
 
 double ft_atof(std::string n, std::string date);
 bool isValidDate(std::string date);
-std::map<std::string, double> dataParse(std::string dataFile);
+std::map<std::string, double> dataParse();
 std::string removeSpaces(std::string div);
 double validatePrice(std::string const &priceStr);
 
@@ -27,7 +27,7 @@ class BitcoinExchange {
         ~BitcoinExchange();
         BitcoinExchange &operator=(const BitcoinExchange &src);
         std::map<std::string, double> getInputs();
-        void setInputs(std::string fileName);
+        void setInputs();
         void printData(std::string file);
         class BadFileFormat : public std::exception {
             public:

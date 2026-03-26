@@ -27,6 +27,8 @@ namespace vectorFunctions {
 	std::vector<int> algoRun(std::string str);
 }
 
+int fordJohnson(std::list<int> lst, std::vector<int> vec);
+
 template<typename T>
 void print(T container, std::string when, double time_taken, std::string containerType) {
 	if (when != "") {

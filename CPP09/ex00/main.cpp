@@ -8,7 +8,7 @@ int	main (int ac, char **av) {
 	}
 	try {
 		BitcoinExchange BExchange;
-		BExchange.setInputs("data.csv");
+		BExchange.setInputs();
 		BExchange.printData(av[1]);
 	}
 	catch (std::exception &e)

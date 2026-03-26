@@ -42,14 +42,12 @@ bool isValidDate(std::string date) {
 	return (true);
 }
 
-std::map<std::string, double> dataParse(std::string dataFile) {
+std::map<std::string, double> dataParse() {
     std::ifstream inFile;
-
-    inFile.open(dataFile.c_str());
-    if (!inFile.is_open()) {
-        std::cout << "Error: bad file." << std::endl;
-        return (std::map<std::string, double>());
-    }
+	inFile.open("data.csv");
+	if (!inFile) {
+		std::cout << "Error: bad file." << std::endl;
+	}
     std::string line;
 	std::getline(inFile, line);
 	std::string dividers[2] = {",", "|"};

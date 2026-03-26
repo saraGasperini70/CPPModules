@@ -21,8 +21,8 @@ std::map<std::string, double> BitcoinExchange::getInputs() {
 	return this->_inputs;
 }
 
-void BitcoinExchange::setInputs(std::string fileName) {
-	this->_inputs = dataParse(fileName);
+void BitcoinExchange::setInputs() {
+	this->_inputs = dataParse();
 }
 
 void BitcoinExchange::printData(std::string file) {
